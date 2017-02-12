@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BP Chrono</title>
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link type="text/css" href="css/main.css" rel="stylesheet">
+
+	<!-- Javascript -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8"
+		crossorigin="anonymous">
+	</script>
+
+	<script type="text/javascript" href="./js/main.css"></script>
+
+	<script type="text/javascript">
+		
+	function initChrono(chrono) {
+		var final = Date.now() + times[chrono];
+
+		chrons[chrono] = setInterval(function(){
+			chron(chrono, final);}, 
+			1000);
+	}
+
+	function pauseChrono(chrono) {
+
+	}
+
+	function stopChrono(chrono) {
+		clearInterval(chrons[chrono]);
+	}
+
+	function resetChrono(chrono) {
+
+	}
+
+	// Private 
+
+	var chrons = {prep: null, 
+		og1: null, oo1: null,
+		og2: null, oo2: null,
+		cg1: null, co1: null,
+		cg2: null, co2: null
+	}
+
+	var times = {prep: 900000,
+		og1: 420000, oo1: 420000,
+		og2: 420000, oo2: 420000,
+		cg1: 420000, co1: 420000,
+		cg2: 420000, co2: 420000
+	}
+
+	function chron(chrono, final) {
+		var value = (final - Date.now()) / 1000; 
+		var text = Math.floor(value / 60) + ':' + Math.floor(value % 60);
+
+		$("#" + chrono).text(text);
+		console.log(text)
+	}
+
+	</script>
+
+</head>
+<body>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+
+			<div class="chrono" id="prep">15:00</div>
+			
+			<div class="Controlers">
+			  <input class="initButton prep"  onclick="initChrono('prep');" value="Continue" type="button">
+			  <input class="pauseButton prep" onclick="pauseChrono('prep');" value="Pause" type="button">	
+			 	<input class="stopButton prep"  onclick="stopChrono('prep');" value="Stop" type="button">
+			  <form style="display:inline;">Seconds: <input maxlength="3" size="3" value="900" type="text">
+					<input value="Reset" onclick="resetChrono('prep');" type="Button">
+				</form>	
+			</div>
+
+			<nav aria-label="Navigation">
+				<ul class="pagination">
+					<li>
+						<a href="#" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						</a>
+					</li>
+					<li><a href="#prep">Preparation</a></li>
+					<li><a href="#og1">OG-1</a></li>
+					<li><a href="#oo1">OO-1</a></li>
+					<li><a href="#og2">OG-2</a></li>
+					<li><a href="#oo2">OO-2</a></li>
+					<li><a href="#cg1">CG-1</a></li>
+					<li><a href="#co1">CO-1</a></li>
+					<li><a href="#cg2">CG-2</a></li>
+					<li><a href="#co2">CO-2</a></li>
+					<li>
+						<a href="#" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			
+		</div>
+	</div>
+
+</body>
+</html>
