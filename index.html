@@ -19,7 +19,6 @@
 </head>
 <body>
 
-	<!-- Preparation -->
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -30,55 +29,53 @@
 				<form class="form-inline">
 					<div class="form-group">
 
-						<button type="button" class="btn btn-default initButton prep" aria-label="Start" onclick="initChrono('prep');">
-							<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-						</button>
+						<div class="btn-group btn-group-lg" role="group" aria-label="...">
+							<button type="button" class="btn btn-default initButton prep" aria-label="Start" onclick="initChrono('prep');">
+								<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+							</button>
 
-						<button type="button" class="btn btn-default pauseButton prep" aria-label="Pause" onclick="pauseChrono('prep');" disabled="">
-							<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-						</button>
+							<button type="button" class="btn btn-default pauseButton prep" aria-label="Pause" onclick="pauseChrono('prep');" disabled="">
+								<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+							</button>
 
-						<button type="button" class="btn btn-default stopButton prep" aria-label="Stop" onclick="stopChrono('prep');" disabled="">
-							<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-						</button>
+							<button type="button" class="btn btn-default stopButton prep" aria-label="Stop" onclick="stopChrono('prep');" disabled="">
+								<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+							</button>
+						</div>
 
-						<div class="input-group">
-							<input class="form-control prep secondsInput" maxlength="4" size="3" value="900" type="text" aria-label="Seconds for the chrono">
+						<div class="input-group hidden-md hidden-lg form-group-lg">
+							<input class="form-control prep minutesInput" value="7:00" type="time" aria-label="time">
+							<div class="input-group-addon">min:sec</div>
+						</div>
+
+						<div class="input-group hidden-xs hidden-sm form-group-lg">
+							<input class="form-control prep minutesInput" maxlength="2" size="2" value="15" type="text" aria-label="Seconds">
+							<div class="input-group-addon">min</div>
+						</div>
+
+						<div class="input-group hidden-xs hidden-sm form-group-lg">
+							<input class="form-control prep secondsInput" maxlength="2" size="2" value="0" type="text" aria-label="Seconds">
 							<div class="input-group-addon">s</div>
 						</div>
+
+						<button type="button" class="btn btn-default btn-lg resetButton prep" aria-label="Reset" onclick="resetChrono('prep');">
+							<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+						</button>
+
+					</div>
+					
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn btn-default btn-lg initButton prep" aria-label="Start" onclick="changeTime(900);">
+							15 min
+						</button>
+
+						<button type="button" class="btn btn-default btn-lg pauseButton prep" aria-label="Pause" onclick="changeTime(420);">
+							7 min
+						</button>
 					</div>
 
-					<button type="button" class="btn btn-default resetButton prep" aria-label="Reset" onclick="resetChrono('prep');">
-						<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
-					</button>
-					
 				</form>
 			</div>
-
-			<nav aria-label="Navigation">
-				<ul class="pagination">
-					<li>
-						<a href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li><a href="#prep">Preparation</a></li>
-					<li><a href="#og1">OG-1</a></li>
-					<li><a href="#oo1">OO-1</a></li>
-					<li><a href="#og2">OG-2</a></li>
-					<li><a href="#oo2">OO-2</a></li>
-					<li><a href="#cg1">CG-1</a></li>
-					<li><a href="#co1">CO-1</a></li>
-					<li><a href="#cg2">CG-2</a></li>
-					<li><a href="#co2">CO-2</a></li>
-					<li>
-						<a href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-
 			
 		</div>
 	</div>
