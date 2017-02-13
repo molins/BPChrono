@@ -23,59 +23,67 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 
-			<div class="chrono" id="prep">15:00</div>
+			<div class="chrono" id="chrono">15:00</div>
 			
 			<div class="Controlers">
 				<form class="form-inline">
 					<div class="form-group">
 
 						<div class="btn-group btn-group-lg" role="group" aria-label="...">
-							<button type="button" class="btn btn-default initButton prep" aria-label="Start" onclick="initChrono('prep');">
+							<button type="button" id="initButton" class="btn btn-default" aria-label="Start" onclick="initChrono();">
 								<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
 							</button>
 
-							<button type="button" class="btn btn-default pauseButton prep" aria-label="Pause" onclick="pauseChrono('prep');" disabled="">
+							<button type="button" id="pauseButton" class="btn btn-default" aria-label="Pause" onclick="pauseChrono();" disabled="">
 								<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 							</button>
 
-							<button type="button" class="btn btn-default stopButton prep" aria-label="Stop" onclick="stopChrono('prep');" disabled="">
+							<button type="button" id="stopButton" class="btn btn-default" aria-label="Stop" onclick="stopChrono();" disabled="">
 								<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
 							</button>
 						</div>
 
 						<div class="input-group hidden-md hidden-lg form-group-lg">
-							<input class="form-control prep minutesInput" value="7:00" type="time" aria-label="time">
+							<input class="form-control minutesInput" value="7:00" type="time" aria-label="time">
 							<div class="input-group-addon">min:sec</div>
 						</div>
 
 						<div class="input-group hidden-xs hidden-sm form-group-lg">
-							<input class="form-control prep minutesInput" maxlength="2" size="2" value="15" type="text" aria-label="Seconds">
+							<input class="form-control minutesInput" maxlength="2" size="2" value="15" type="text" aria-label="Seconds">
 							<div class="input-group-addon">min</div>
 						</div>
 
 						<div class="input-group hidden-xs hidden-sm form-group-lg">
-							<input class="form-control prep secondsInput" maxlength="2" size="2" value="0" type="text" aria-label="Seconds">
+							<input class="form-control secondsInput" maxlength="2" size="2" value="0" type="text" aria-label="Seconds">
 							<div class="input-group-addon">s</div>
 						</div>
 
-						<button type="button" class="btn btn-default btn-lg resetButton prep" aria-label="Reset" onclick="resetChrono('prep');">
+						<button type="button" id="resetButton" class="btn btn-default btn-lg" aria-label="Reset" onclick="resetChrono();">
 							<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
 						</button>
 
 					</div>
 					
 					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default btn-lg initButton prep" aria-label="Start" onclick="changeTime(900);">
+						<button type="button" id="15minButton" class="btn btn-default btn-lg" onclick="changeTime(900);">
 							15 min
 						</button>
 
-						<button type="button" class="btn btn-default btn-lg pauseButton prep" aria-label="Pause" onclick="changeTime(420);">
+						<button type="button" id="7minButton" class="btn btn-default btn-lg" onclick="changeTime(420);">
 							7 min
+						</button>
+
+						<button type="button" id="5minButton" class="btn btn-default btn-lg" onclick="changeTime(300);">
+							5 min
 						</button>
 					</div>
 
 				</form>
 			</div>
+
+			<table class="table table-hover">
+				
+			</table>
 			
 		</div>
 	</div>

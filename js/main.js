@@ -1,60 +1,57 @@
-function initChrono(chrono) {
-		var final = Date.now() + times[chrono];
+function initChrono() {
+	var final = Date.now() + time;
 
-		chrons[chrono] = setInterval(function(){
-			chron(chrono, final);}, 
-			500);
+	chrono = setInterval(function(){
+		chron(final);}, 
+		500);
 
-		chron(chrono, final);
+	chron(final);
 
-		$('.' + chrono + '.initButton').prop("disabled", true);
-		$('.' + chrono + '.pauseButton').prop("disabled", false);
-		$('.' + chrono + '.stopButton').prop("disabled", false);
-	}
+	$('#initButton').prop("disabled", true);
+	$('#pauseButton').prop("disabled", false);
+	$('#stopButton').prop("disabled", false);
+}
 
-	function pauseChrono(chrono) {
-		clearInterval(chrons[chrono]);
+function pauseChrono() {
+	clearInterval(chrono);
 
-		$('.' + chrono + '.initButton').prop("disabled", false);
-		$('.' + chrono + '.pauseButton').prop("disabled", true);
-		$('.' + chrono + '.stopButton').prop("disabled", false);
-	}
+	$('#initButton').prop("disabled", false);
+	$('#pauseButton').prop("disabled", true);
+	$('#stopButton').prop("disabled", false);
+}
 
-	function stopChrono(chrono) {
-		clearInterval(chrons[chrono]);
+function stopChrono() {
+	clearInterval(chrono);
 
-		$('.' + chrono + '.initButton').prop("disabled", false);
-		$('.' + chrono + '.pauseButton').prop("disabled", false);
-		$('.' + chrono + '.stopButton').prop("disabled", false);
-	}
+	$('#initButton').prop("disabled", true);
+	$('#pauseButton').prop("disabled", true);
+	$('#stopButton').prop("disabled", true);
+}
 
-	function resetChrono(chrono) {
+function resetChrono() {
 
-	}
+}
 
-	// Private 
+function changeTime(t) {
+	time = t * 1000;
+	stopChrono();
+	var final = Date.now() + time;
+	chron(final);
+}
 
-	var chrons = {prep: null, 
-		og1: null, oo1: null,
-		og2: null, oo2: null,
-		cg1: null, co1: null,
-		cg2: null, co2: null
-	}
+// Private 
 
-	var times = {prep: 900000,
-		og1: 420000, oo1: 420000,
-		og2: 420000, oo2: 420000,
-		cg1: 420000, co1: 420000,
-		cg2: 420000, co2: 420000
-	}
+var chrono = {};
 
-	function chron(chrono, final) {
-		var value = (final - Date.now()) / 1000; 
+var time = 420000;
 
-		var minutes = ('00' + Math.floor(value / 60)).slice(-2)
-		var seconds = ('00' + Math.floor(value % 60)).slice(-2)
+function chron(final) {
+	var value = (final - Date.now()) / 1000; 
 
-		var text = minutes + ':' + seconds;
+	var minutes = ('00' + Math.floor(value / 60)).slice(-2)
+	var seconds = ('00' + Math.floor(value % 60)).slice(-2)
 
-		$("#" + chrono).text(text);
-	}
+	var text = minutes + ':' + seconds;
+
+	$('#chrono').text(text);
+}
