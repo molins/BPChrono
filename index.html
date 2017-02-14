@@ -43,18 +43,13 @@
 							</button>
 						</div>
 
-						<div class="input-group hidden-md hidden-lg form-group-lg">
-							<input class="form-control minutesInput" value="7:00" type="time" aria-label="time">
-							<div class="input-group-addon">min:sec</div>
-						</div>
-
-						<div class="input-group hidden-xs hidden-sm form-group-lg">
-							<input class="form-control minutesInput" maxlength="2" size="2" value="15" type="text" aria-label="Seconds">
+						<div class="input-group form-group-lg">
+							<input id="minutesInput" class="form-control" value="7" min=0 max=1440 type="number" aria-label="Minutes">
 							<div class="input-group-addon">min</div>
 						</div>
 
-						<div class="input-group hidden-xs hidden-sm form-group-lg">
-							<input class="form-control secondsInput" maxlength="2" size="2" value="0" type="text" aria-label="Seconds">
+						<div class="input-group form-group-lg">
+							<input id="secondsInput" class="form-control" value="0" max=59 min=0 type="number" aria-label="Seconds">
 							<div class="input-group-addon">s</div>
 						</div>
 

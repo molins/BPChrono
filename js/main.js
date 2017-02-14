@@ -1,11 +1,7 @@
 function initChrono() {
-	var final = Date.now() + time;
+	final = Date.now() + time;
 
-	chrono = setInterval(function(){
-		chron(final);}, 
-		500);
-
-	chron(final);
+	animationFrame = requestAnimationFrame(chron);
 
 	$('#initButton').prop("disabled", true);
 	$('#pauseButton').prop("disabled", false);
@@ -13,7 +9,7 @@ function initChrono() {
 }
 
 function pauseChrono() {
-	clearInterval(chrono);
+	cancelAnimationFrame(animationFrame);
 
 	$('#initButton').prop("disabled", false);
 	$('#pauseButton').prop("disabled", true);
@@ -21,7 +17,7 @@ function pauseChrono() {
 }
 
 function stopChrono() {
-	clearInterval(chrono);
+	cancelAnimationFrame(animationFrame);
 
 	$('#initButton').prop("disabled", true);
 	$('#pauseButton').prop("disabled", true);
@@ -29,7 +25,12 @@ function stopChrono() {
 }
 
 function resetChrono() {
+	stopChrono();
 
+	var min = $('#minutesInput').value();
+	var sec = $('#secondsInput').value();
+
+	time = (min * 60 + sec) * 1000;
 }
 
 function changeTime(t) {
@@ -40,13 +41,12 @@ function changeTime(t) {
 }
 
 // Private 
-
-var chrono = {};
-
 var time = 420000;
+var final = null;
+var animationFrame = null;
 
-function chron(final) {
-	var value = (final - Date.now()) / 1000; 
+function chron(t) {
+	var value = (final - t) / 1000; 
 
 	var minutes = ('00' + Math.floor(value / 60)).slice(-2)
 	var seconds = ('00' + Math.floor(value % 60)).slice(-2)
@@ -54,4 +54,6 @@ function chron(final) {
 	var text = minutes + ':' + seconds;
 
 	$('#chrono').text(text);
+
+	animationFrame = requestAnimationFrame(chron);
 }
