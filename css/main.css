@@ -1,4 +1,22 @@
-
-.chrono {
-	font-size: 280px;
+#chrono {
+	text-align: center;
+	font-size: 25vw;
 }
+
+/*
+@media (max-width: 800px)  {
+	#chrono {
+		font-size: 200px;
+	}
+}
+
+@media (max-width: 580px) {
+	#chrono {
+		font-size: 140px;
+	}
+}
+
+#chrono {
+	font-size: ;
+}
+*/
