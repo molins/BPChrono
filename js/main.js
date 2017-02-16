@@ -1,20 +1,18 @@
+// To be called just once, on load. Sets everything to be consistent
 function init() {
-	var minutes = time / 60;
-	var seconds = time % 60;
-
-	changeText(minutes, seconds);
+	changeText(time);
 
 	$('#initButton').prop("disabled", false);
 	$('#pauseButton').prop("disabled", true);
 	$('#stopButton').prop("disabled", true);
 }
 
-
+// Starts or reasumes the chron
 function initChrono() {
 	if (!paused) {
 		final = performance.now() + time * 1000;
 	} else {
-		final = 0; //TODO
+		final = performance.now() + getTimeOnScreen() * 1000;
 	}
 
 	animationFrame = requestAnimationFrame(chron);
@@ -49,14 +47,11 @@ function stopChrono() {
 function resetChrono() {
 	stopChrono();
 
-	var min = $('#minutesInput').val();
-	var sec = $('#secondsInput').val();
-
-	time = (min * 60 + sec);
+	time = getTimeOnInput();
 
 	$('#initButton').prop("disabled", false);
 
-	changeText(min, sec);
+	changeText(time);
 
 	paused = false;
 }
@@ -66,7 +61,7 @@ function changeTime(t) {
 	stopChrono();
 	var minutes = time / 60;
 	var seconds = time % 60;
-	changeText(minutes, seconds);
+	changeText(t);
 	$('#initButton').prop("disabled", false);
 
 	paused = false;
@@ -81,16 +76,17 @@ var paused = false;
 function chron(t) {
 	var value = (final - t) / 1000;
 
-	var minutes = ~~(value / 60);
-	var seconds = ~~(value % 60);
-
-	changeText(minutes, seconds);
+	changeText(value);
 
 	animationFrame = requestAnimationFrame(chron);
 }
 
-function changeText(min, sec) {
+function changeText(value) {
 	var text;
+	var min = ~~(value / 60);
+	var sec = ~~(value % 60);
+
+	console.log('changeText: ' + value + ' -- ' + min + ':' + sec);
 
 	if (min > 10) {
 		text = min + ':' + ('0' + sec).slice(-2);
@@ -103,4 +99,23 @@ function changeText(min, sec) {
 	}
 
 	$('#chrono').text(text);	
+}
+
+function getTimeOnInput() {
+	var min = $('#minutesInput').val();
+	var sec = $('#secondsInput').val();
+
+	console.log('getTimeOnInput: ' + min + ':' + sec + '= ' + (min * 60 + sec));
+
+	return (min * 60 + sec * 1);
+}
+
+function getTimeOnScreen() {
+	var text = $('#chrono').text().split(':');
+	var min = text[0];
+	var sec = text[1];
+
+	console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 + sec));
+
+	return (min * 60 + sec * 1);
 }
