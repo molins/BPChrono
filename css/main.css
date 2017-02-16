@@ -5,28 +5,70 @@ body {
 
 #chrono {
 	text-align: center;
-	font-size: 25vw;
+	font-size: 30vw;
 }
 
 #controllers {
-  width: 1000px;
+  width: 798px;
 	margin-bottom: 40px;
+	display:block;
+  clear:both;
+}
+
+#controlButtons {
+	width: 230px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+#timeControls {
+	width: 318px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+
+#timePresets {
+	width: 250px;
+	float: left;
+}
+
+@media (max-width: 830px) {
+	#controllers {
+		width: 100vw;
+	}
+	
+	#timePresets {
+		float: none;
+	}
+	
+	#timeControls {
+		float: none;
+	}
+	
+	#controlButtons {
+		float: none;
+	}
+}
+
+#config {
+	width: 52px;
 }
 
 
 .btn {
-	margin-left: 10px;
-	margin-right: 10px;
+	//margin-left: 10px;
+	//margin-right: 10px;
 }
 
 .btn-group {
-	margin-left: 10px;
-	margin-right: 10px;
+	//margin-left: 10px;
+	//margin-right: 10px;
 }
 
 .btn-group .btn {
-	margin-left: 0px;
-	margin-right: 0px;
+	//margin-left: 0px;
+	//margin-right: 0px;
 }
 
 .timesControls {
@@ -34,8 +76,8 @@ body {
 }
 
 .input-group {
-	margin-left: 10px;
-	margin-right: -10px;
+	//margin-left: 10px;
+	//margin-right: -10px;
 }
 
 /*

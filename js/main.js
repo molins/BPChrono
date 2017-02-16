@@ -5,6 +5,12 @@ function init() {
 	$('#initButton').prop("disabled", false);
 	$('#pauseButton').prop("disabled", true);
 	$('#stopButton').prop("disabled", true);
+
+	if (ding) {
+		$('#dingGlyphicon').addClass('glyphicon-bell');
+	} else {
+		$('#dingGlyphicon').addClass('glyphicon-volume-off'); 
+	}
 }
 
 // Starts or resumes the chron
@@ -74,11 +80,20 @@ function toggleConfiguration() {
 	$('#config').toggleClass('hidden');
 }
 
+function toggleDing() {
+	if (ding) {
+		$('#ding').trigger('play');
+	}
+	$('#dingGlyphicon').toggleClass('glyphicon-volume-off glyphicon-bell');
+	ding = !ding;
+}
+
 // Private 
 var time = 420;
 var final = null;
 var animationFrame = null;
 var paused = false;
+var ding = true;
 
 function chron(t) {
 	var value = (final - t) / 1000;
