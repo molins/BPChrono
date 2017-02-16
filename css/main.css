@@ -8,6 +8,36 @@ body {
 	font-size: 25vw;
 }
 
+#controllers {
+  width: 1000px;
+	margin-bottom: 40px;
+}
+
+
+.btn {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.btn-group {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.btn-group .btn {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.timesControls {
+	width: 80px !important;
+}
+
+.input-group {
+	margin-left: 10px;
+	margin-right: -10px;
+}
+
 /*
 @media (max-width: 800px)  {
 	#chrono {

@@ -7,7 +7,7 @@ function init() {
 	$('#stopButton').prop("disabled", true);
 }
 
-// Starts or reasumes the chron
+// Starts or resumes the chron
 function initChrono() {
 	if (!paused) {
 		final = performance.now() + time * 1000;
@@ -24,6 +24,7 @@ function initChrono() {
 	paused = false;
 }
 
+// Pauses the chrono
 function pauseChrono() {
 	cancelAnimationFrame(animationFrame);
 
@@ -34,6 +35,7 @@ function pauseChrono() {
 	paused = true;
 }
 
+// Stops the chrono
 function stopChrono() {
 	cancelAnimationFrame(animationFrame);
 
@@ -67,6 +69,11 @@ function changeTime(t) {
 	paused = false;
 }
 
+
+function toggleConfiguration() {
+	$('#config').toggleClass('hidden');
+}
+
 // Private 
 var time = 420;
 var final = null;
@@ -86,7 +93,7 @@ function changeText(value) {
 	var min = ~~(value / 60);
 	var sec = ~~(value % 60);
 
-	console.log('changeText: ' + value + ' -- ' + min + ':' + sec);
+	//console.log('changeText: ' + value + ' -- ' + min + ':' + sec);
 
 	if (min > 10) {
 		text = min + ':' + ('0' + sec).slice(-2);

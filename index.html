@@ -20,61 +20,86 @@
 	<div class="">
 		<div class="">
 
-			<div id="chrono"></div>
+			<div id="chrono" class="center-block"></div>
 			
-			<div class="Controlers">
-				<form class="form-inline">
-					<div class="form-group">
+			<div id="controllers" class="center-block">
+					<form class="form-inline">
+						<div class="form-group">
 
-						<div class="btn-group btn-group-lg" role="group" aria-label="Chrono controls">
-							<button type="button" id="initButton" class="btn btn-default" aria-label="Start" onclick="initChrono();">
-								<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+						<div class="container">
+						<div class="row">
+						<div class="col-md-4">
+
+							<div class="btn-group btn-group-lg" role="group" aria-label="Chrono controls">
+								<button type="button" id="initButton" class="btn btn-default" aria-label="Start" onclick="initChrono();">
+									<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+								</button>
+
+								<button type="button" id="pauseButton" class="btn btn-default" aria-label="Pause" onclick="pauseChrono();" disabled="">
+									<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+								</button>
+
+								<button type="button" id="stopButton" class="btn btn-default" aria-label="Stop" onclick="stopChrono();" disabled="">
+									<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+								</button>
+							</div>
+
+							<button type="button" id="configButton" class="btn btn-default btn-lg" aria-label="Configuration" onclick="toggleConfiguration();">
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</button>
 
-							<button type="button" id="pauseButton" class="btn btn-default" aria-label="Pause" onclick="pauseChrono();" disabled="">
-								<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+						</div>
+						<div class="col-md-4">
+
+							<div class="input-group form-group-lg">
+								<input id="minutesInput" class="form-control timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutes">
+								<div class="input-group-addon">min</div>
+								<input id="secondsInput" class="form-control timesControls" value="0" max=59 min=0 type="number" aria-label="Seconds">
+								<div class="input-group-addon">s</div>
+							</div>
+
+							<button type="button" id="resetButton" class="btn btn-default btn-lg" aria-label="Reset" onclick="resetChrono();">
+								<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
 							</button>
 
-							<button type="button" id="stopButton" class="btn btn-default" aria-label="Stop" onclick="stopChrono();" disabled="">
-								<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-							</button>
 						</div>
+						<div class="col-md-4">
+						
+							<div class="btn-group" role="group">
+								<button type="button" id="15minButton" class="btn btn-default btn-lg" onclick="changeTime(900);">
+									15 min
+								</button>
 
-						<div class="input-group form-group-lg">
-							<input id="minutesInput" class="form-control" value="7" min=0 max=1440 type="number" aria-label="Minutes">
-							<div class="input-group-addon">min</div>
+								<button type="button" id="7minButton" class="btn btn-default btn-lg" onclick="changeTime(420);">
+									7 min
+								</button>
+
+								<button type="button" id="5minButton" class="btn btn-default btn-lg" onclick="changeTime(300);">
+									5 min
+								</button>
+							</div>
 						</div>
+					</form>
 
-						<div class="input-group form-group-lg">
-							<input id="secondsInput" class="form-control" value="0" max=59 min=0 type="number" aria-label="Seconds">
-							<div class="input-group-addon">s</div>
-						</div>
+				</div>
+			</div>
 
-						<button type="button" id="resetButton" class="btn btn-default btn-lg" aria-label="Reset" onclick="resetChrono();">
-							<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
-						</button>
+			<div id="config" class="center-block hidden">
 
-					</div>
-					
-					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" id="15minButton" class="btn btn-default btn-lg" onclick="changeTime(900);">
-							15 min
-						</button>
-
-						<button type="button" id="7minButton" class="btn btn-default btn-lg" onclick="changeTime(420);">
-							7 min
-						</button>
-
-						<button type="button" id="5minButton" class="btn btn-default btn-lg" onclick="changeTime(300);">
-							5 min
-						</button>
-					</div>
-
-				</form>
 			</div>
 
 			<table class="table table-hover">
-				
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span></th>
+						<th>Total</th>
+						<th><span class="glyphicon glyphicon-time" aria-hidden="true"></span></th>
+						<th><span class="glyphicon glyphicon-pause" aria-hidden="true"></span>?</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
 			</table>
 			
 		</div>
