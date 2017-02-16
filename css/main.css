@@ -1,3 +1,8 @@
+body {
+	color: #333;
+	background-color: #eee;
+}
+
 #chrono {
 	text-align: center;
 	font-size: 25vw;

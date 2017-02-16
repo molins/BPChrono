@@ -1,10 +1,8 @@
 function init() {
-	var minutes = ('00' + time / 60).slice(-2)
-	var seconds = ('00' + time % 60).slice(-2)
+	var minutes = time / 60;
+	var seconds = time % 60;
 
-	var text = minutes + ':' + seconds;
-
-	$('#chrono').text(text);
+	changeText(minutes, seconds);
 
 	$('#initButton').prop("disabled", false);
 	$('#pauseButton').prop("disabled", true);
@@ -13,13 +11,19 @@ function init() {
 
 
 function initChrono() {
-	final = performance.now() + time * 1000;
+	if (!paused) {
+		final = performance.now() + time * 1000;
+	} else {
+		final = 0; //TODO
+	}
 
 	animationFrame = requestAnimationFrame(chron);
 
 	$('#initButton').prop("disabled", true);
 	$('#pauseButton').prop("disabled", false);
 	$('#stopButton').prop("disabled", false);
+
+	paused = false;
 }
 
 function pauseChrono() {
@@ -28,6 +32,8 @@ function pauseChrono() {
 	$('#initButton').prop("disabled", false);
 	$('#pauseButton').prop("disabled", true);
 	$('#stopButton').prop("disabled", false);
+
+	paused = true;
 }
 
 function stopChrono() {
@@ -36,39 +42,65 @@ function stopChrono() {
 	$('#initButton').prop("disabled", true);
 	$('#pauseButton').prop("disabled", true);
 	$('#stopButton').prop("disabled", true);
+
+	paused = false;
 }
 
 function resetChrono() {
 	stopChrono();
 
-	var min = $('#minutesInput').value();
-	var sec = $('#secondsInput').value();
+	var min = $('#minutesInput').val();
+	var sec = $('#secondsInput').val();
 
 	time = (min * 60 + sec);
+
+	$('#initButton').prop("disabled", false);
+
+	changeText(min, sec);
+
+	paused = false;
 }
 
 function changeTime(t) {
 	time = t;
 	stopChrono();
-	final = performance.now() + time;
-	chron(final);
+	var minutes = time / 60;
+	var seconds = time % 60;
+	changeText(minutes, seconds);
+	$('#initButton').prop("disabled", false);
+
+	paused = false;
 }
 
 // Private 
 var time = 420;
 var final = null;
 var animationFrame = null;
+var paused = false;
 
 function chron(t) {
 	var value = (final - t) / 1000;
-	console.log(t);
 
-	var minutes = ('00' + Math.floor(value / 60)).slice(-2)
-	var seconds = ('00' + Math.floor(value % 60)).slice(-2)
+	var minutes = ~~(value / 60);
+	var seconds = ~~(value % 60);
 
-	var text = minutes + ':' + seconds;
-
-	$('#chrono').text(text);
+	changeText(minutes, seconds);
 
 	animationFrame = requestAnimationFrame(chron);
+}
+
+function changeText(min, sec) {
+	var text;
+
+	if (min > 10) {
+		text = min + ':' + ('0' + sec).slice(-2);
+	} else if (min >= 0 && sec >= 0) {
+		text = ('0' + min).slice(-2) + ':' + ('0' + sec).slice(-2);
+	} else if (min > -10) {
+		text = '-' + ('0' + Math.abs(min)).slice(-2) + ':' + ('0' + Math.abs(sec)).slice(-2);
+	} else {
+		text = min + ':' + ('0' + Math.abs(sec)).slice(-1);
+	}
+
+	$('#chrono').text(text);	
 }
