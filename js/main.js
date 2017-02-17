@@ -81,9 +81,6 @@ function toggleConfiguration() {
 }
 
 function toggleDing() {
-	if (ding) {
-		$('#ding').trigger('play');
-	}
 	$('#dingGlyphicon').toggleClass('glyphicon-volume-off glyphicon-bell');
 	ding = !ding;
 }
@@ -93,7 +90,9 @@ var time = 420;
 var final = null;
 var animationFrame = null;
 var paused = false;
-var ding = true;
+var ding = false;
+var dinging = false;
+var shouldDing = false;
 
 function chron(t) {
 	var value = (final - t) / 1000;
@@ -107,9 +106,13 @@ function changeText(value) {
 	var text;
 	var min = ~~(value / 60);
 	var sec = ~~(value % 60);
+	//min = Math.floor(value / 60);
+	min = ~~(Math.floor(value) / 60);
+	sec = Math.floor(value) % 60;
 
-	//console.log('changeText: ' + value + ' -- ' + min + ':' + sec);
+	//console.log('changeText: ' + value + ' _ ' + min + ':' + sec);
 
+	// Text formating
 	if (min > 10) {
 		text = min + ':' + ('0' + sec).slice(-2);
 	} else if (min >= 0 && sec >= 0) {
@@ -120,14 +123,32 @@ function changeText(value) {
 		text = min + ':' + ('0' + Math.abs(sec)).slice(-1);
 	}
 
+	// State machine for dinging
+	if (sec == 0 && min == 6) {
+		if (!dinging) {
+			dinging = true;
+			playDing();
+		}
+	} else if (sec == 0 && min == 1) {
+		if (!dinging) {
+			dinging = true;
+			playDing();
+		}
+	} else if (sec == 0 && min == 0) {
+		if (!dinging) {
+			dinging = true;
+			playDing(false);
+		}
+	} else {
+		dinging = false;
+	}
+
 	$('#chrono').text(text);	
 }
 
 function getTimeOnInput() {
 	var min = $('#minutesInput').val();
 	var sec = $('#secondsInput').val();
-
-	console.log('getTimeOnInput: ' + min + ':' + sec + '= ' + (min * 60 + sec));
 
 	return (min * 60 + sec * 1);
 }
@@ -140,4 +161,16 @@ function getTimeOnScreen() {
 	console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 + sec));
 
 	return (min * 60 + sec * 1);
+}
+
+function playDing(single = true) {
+	if (ding) {
+		if (single) {
+			$('#dingx1').trigger('play');
+			console.log('Ding!');
+		} else {
+			$('#dingx2').trigger('play');
+			console.log('Ding! Ding!');
+		}
+	}
 }
