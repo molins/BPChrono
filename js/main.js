@@ -158,9 +158,13 @@ function getTimeOnScreen() {
 	var min = text[0];
 	var sec = text[1];
 
-	console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 + sec));
+	//console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 + sec));
 
-	return (min * 60 + sec * 1);
+	if (min[0] == '-') {
+		return -(min * 60 + sec * 1);
+	} else {
+		return (min * 60 + sec * 1);
+	}	
 }
 
 function playDing(single = true) {
