@@ -7,9 +7,9 @@ function init() {
 	$('#stopButton').prop("disabled", true);
 
 	if (ding) {
-		$('#dingGlyphicon').addClass('glyphicon-bell');
+		$('#dingGlyphicon').addClass('fa-bell');
 	} else {
-		$('#dingGlyphicon').addClass('glyphicon-volume-off'); 
+		$('#dingGlyphicon').addClass('fa-bell-slash'); 
 	}
 }
 
@@ -81,7 +81,7 @@ function toggleConfiguration() {
 }
 
 function toggleDing() {
-	$('#dingGlyphicon').toggleClass('glyphicon-volume-off glyphicon-bell');
+	$('#dingGlyphicon').toggleClass('fa-bell-slash fa-bell');
 	ding = !ding;
 }
 

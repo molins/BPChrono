@@ -6,8 +6,7 @@
 	<meta charset="UTF-8"> 
 
 	<!-- Styles -->
-	<link type="text/css" href="css/bootstrap.css" rel="stylesheet">
-
+	<link type="text/css" href="css/font-awesome.min.css" rel="stylesheet">
 	<link type="text/css" href="css/main.css" rel="stylesheet">
 
 	<!-- Javascript -->
@@ -33,20 +32,20 @@
 			<div id="controlButtons" class="center-block">
 				<div class="btn-group btn-group-lg" role="group" aria-label="Chrono controls">
 					<button type="button" id="initButton" class="btn btn-default" aria-label="Start" onclick="initChrono();">
-						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+						<span class="fa fa-play" aria-hidden="true"></span>
 					</button>
 
 					<button type="button" id="pauseButton" class="btn btn-default" aria-label="Pause" onclick="pauseChrono();" disabled="">
-						<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+						<span class="fa fa-pause" aria-hidden="true"></span>
 					</button>
 
 					<button type="button" id="stopButton" class="btn btn-default" aria-label="Stop" onclick="stopChrono();" disabled="">
-						<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+						<span class="fa fa-stop" aria-hidden="true"></span>
 					</button>
 				</div>
 
 				<button type="button" id="configButton" class="btn btn-default btn-lg" aria-label="Configuration" onclick="toggleConfiguration();">
-					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					<span class="fa fa-cog" aria-hidden="true"></span>
 				</button>
 
 			</div>
@@ -61,7 +60,7 @@
 				</div>
 
 				<button type="button" id="resetButton" class="btn btn-default btn-lg" aria-label="Reset" onclick="resetChrono();">
-					<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+					<span class="fa fa-repeat" aria-hidden="true"></span>
 				</button>
 			</div>
 				
@@ -86,25 +85,10 @@
 
 	<div id="config" class="center-block hidden">
 		<button type="button" id="dingButton" class="btn btn-default btn-lg" aria-label="Toogle Sound" onclick="toggleDing();">
-			<span id="dingGlyphicon" class="glyphicon" aria-hidden="true"></span>
+			<span id="dingGlyphicon" class="fa" aria-hidden="true"></span>
 		</button>
 	</div>
 
-	<!--
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th><span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span></th>
-				<th>Total</th>
-				<th><span class="glyphicon glyphicon-time" aria-hidden="true"></span></th>
-				<th><span class="glyphicon glyphicon-pause" aria-hidden="true"></span>?</th>
-			</tr>
-		</thead>
-		<tbody>
-			
-		</tbody>
-	</table>
-	-->
 		
 </body>
 </html>

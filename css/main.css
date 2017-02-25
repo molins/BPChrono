@@ -3,6 +3,10 @@ body {
 	background-color: #eee;
 }
 
+.hidden {
+  display: none !important;
+}
+
 #chrono {
 	text-align: center;
 	font-size: 30vw;
