@@ -85,6 +85,11 @@ function toggleDing() {
 	ding = !ding;
 }
 
+function togglePresets() {
+	$('.timePresets').toggleClass('hidden');
+	
+}
+
 // Private 
 var time = 420;
 var final = null;
@@ -143,7 +148,7 @@ function changeText(value) {
 		dinging = false;
 	}
 
-	$('#chrono').text(text);	
+	$('#chrono').children().text(text);	
 }
 
 function getTimeOnInput() {

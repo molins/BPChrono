@@ -16,6 +16,9 @@
 
 </head>
 <body onload="init();">
+
+
+
 	<audio id="dingx1">
 		<source src="sounds/ding x1.mp3" type="audio/mpeg">
 	</audio>
@@ -24,71 +27,95 @@
 		<source src="sounds/ding x2.mp3" type="audio/mpeg">
 	</audio>
 
-	<div id="chrono" class="center-block"></div>
+
+
+
+	<div id="chrono" class="center-block"><p></p></div>
 		
-	<div id="controllers" class="center-block">
-		<form class="form-inline">
 
-			<div id="controlButtons" class="center-block">
-				<div class="btn-group btn-group-lg" role="group" aria-label="Chrono controls">
-					<button type="button" id="initButton" class="btn btn-default" aria-label="Start" onclick="initChrono();">
-						<span class="fa fa-play" aria-hidden="true"></span>
-					</button>
 
-					<button type="button" id="pauseButton" class="btn btn-default" aria-label="Pause" onclick="pauseChrono();" disabled="">
-						<span class="fa fa-pause" aria-hidden="true"></span>
-					</button>
+	<div id="controlButtons" class="controls center-block">
+		
+		<div class="button-group" role="group" aria-label="Chrono controls">
+			
+			<button type="button" id="initButton" aria-label="Start" onclick="initChrono();">
+				<span class="fa fa-play" aria-hidden="true"></span>
+			</button>
 
-					<button type="button" id="stopButton" class="btn btn-default" aria-label="Stop" onclick="stopChrono();" disabled="">
-						<span class="fa fa-stop" aria-hidden="true"></span>
-					</button>
-				</div>
+			<button type="button" id="pauseButton" aria-label="Pause" onclick="pauseChrono();" disabled="">
+				<span class="fa fa-pause" aria-hidden="true"></span>
+			</button>
 
-				<button type="button" id="configButton" class="btn btn-default btn-lg" aria-label="Configuration" onclick="toggleConfiguration();">
-					<span class="fa fa-cog" aria-hidden="true"></span>
-				</button>
+			<button type="button" id="stopButton" aria-label="Stop" onclick="stopChrono();" disabled="">
+				<span class="fa fa-stop" aria-hidden="true"></span>
+			</button>
+		</div>
 
-			</div>
+	</div>
 
-					
-			<div id="timeControls" class="center-block">
-				<div class="input-group form-group-lg">
-					<input id="minutesInput" class="form-control timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutes">
-					<div class="input-group-addon">min</div>
-					<input id="secondsInput" class="form-control timesControls" value="0" max=59 min=0 type="number" aria-label="Seconds">
-					<div class="input-group-addon">s</div>
-				</div>
 
-				<button type="button" id="resetButton" class="btn btn-default btn-lg" aria-label="Reset" onclick="resetChrono();">
-					<span class="fa fa-repeat" aria-hidden="true"></span>
-				</button>
-			</div>
-				
-			<div id="timePresets" class="center-block">
-				<div class="btn-group" role="group">
-					<button type="button" id="15minButton" class="btn btn-default btn-lg" onclick="changeTime(900);">
-						15 min
-					</button>
 
-					<button type="button" id="7minButton" class="btn btn-default btn-lg" onclick="changeTime(420);">
-						7 min
-					</button>
+	<div id="bp" class="center-block controls timePresets">
+		<div class="button-group" role="group">
+			<button type="button" id="15minButton" onclick="changeTime(900);">
+				15 min
+			</button>
 
-					<button type="button" id="5minButton" class="btn btn-default btn-lg" onclick="changeTime(300);">
-						5 min
-					</button>
-				</div>
-			</div>
-		</form>
+			<button type="button" id="7minButton" onclick="changeTime(420);">
+				7 min
+			</button>
 
+			<button type="button" id="5minButton" onclick="changeTime(300);">
+				5 min
+			</button>
+
+		</div>
+	</div>
+
+	<div id="academic" class="center-block controls timePresets hidden">
+		<div class="button-group" role="group">
+
+			<button type="button" id="5minButton" onclick="changeTime(300);">
+				5 min
+			</button>
+
+			<button type="button" id="4minButton" onclick="changeTime(240);">
+				4 min
+			</button>
+
+			<button type="button" id="3minButton" onclick="changeTime(180);">
+				3 min
+			</button>
+		</div>
+	</div>
+
+
+
+			
+	<div id="timeControls" class="center-block controls">
+		<input id="minutesInput" class="timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutes"><label for="minutesInput">min</label>
+		<input id="secondsInput" class="timesControls" value="0" max=59 min=0 type="number" aria-label="Seconds"><label for="secondsInput">s</label>
+
+		<div class="button-group" role="group">
+			<button type="button" id="resetButton" aria-label="Reset" onclick="resetChrono();">
+				<span class="fa fa-repeat" aria-hidden="true"></span>
+			</button>
+
+			<button type="button" id="configButton" aria-label="Configuration" onclick="toggleConfiguration();">
+				<span class="fa fa-cog" aria-hidden="true"></span>
+			</button>
+		</div>
 	</div>
 
 	<div id="config" class="center-block hidden">
-		<button type="button" id="dingButton" class="btn btn-default btn-lg" aria-label="Toogle Sound" onclick="toggleDing();">
+		<button type="button" id="dingButton" aria-label="Toogle Sound" onclick="toggleDing();">
 			<span id="dingGlyphicon" class="fa" aria-hidden="true"></span>
 		</button>
-	</div>
 
+		<button type="button" id="presetsButton" aria-label="Toogle debate type" onclick="togglePresets();">
+			BP
+		</button>
+	</div>
 		
 </body>
 </html>
