@@ -50,7 +50,7 @@ span.fa {
 }
 
 .timePresets {
-	width: 423px;
+	width: 459px;
 }
 
 input {
@@ -64,7 +64,7 @@ input {
 }
 
 #config {
-	width: 52px;
+	width: 543px;
 }
 
 #configButton {
@@ -91,6 +91,7 @@ button {
 	text-shadow: 1px 1px 0 #fff;
 	font-size: 30px;
 	color: #333;
+	height: 71px;
 	white-space: nowrap;
 	cursor: pointer;
 	outline: none;

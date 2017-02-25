@@ -62,11 +62,11 @@
 			</button>
 
 			<button type="button" id="7minButton" onclick="changeTime(420);">
-				7 min
+				07 min
 			</button>
 
 			<button type="button" id="5minButton" onclick="changeTime(300);">
-				5 min
+				05 min
 			</button>
 
 		</div>
@@ -76,19 +76,18 @@
 		<div class="button-group" role="group">
 
 			<button type="button" id="5minButton" onclick="changeTime(300);">
-				5 min
+				05 min
 			</button>
 
 			<button type="button" id="4minButton" onclick="changeTime(240);">
-				4 min
+				04 min
 			</button>
 
 			<button type="button" id="3minButton" onclick="changeTime(180);">
-				3 min
+				03 min
 			</button>
 		</div>
 	</div>
-
 
 
 			
@@ -107,14 +106,28 @@
 		</div>
 	</div>
 
-	<div id="config" class="center-block hidden">
-		<button type="button" id="dingButton" aria-label="Toogle Sound" onclick="toggleDing();">
-			<span id="dingGlyphicon" class="fa" aria-hidden="true"></span>
-		</button>
 
-		<button type="button" id="presetsButton" aria-label="Toogle debate type" onclick="togglePresets();">
-			BP
-		</button>
+
+
+	<div id="config" class="center-block hidden">
+		<div class="button-group">
+			<button type="button" id="dingButton" aria-label="Toogle Sound" onclick="toggleDing();">
+				<span id="dingGlyphicon" class="fa" aria-hidden="true"></span>
+			</button>
+
+			<button type="button" id="presetsButton" aria-label="Toogle debate type" onclick="togglePresets();">
+			</button>
+
+			<button type="button" id="tableButton" aria-label="Toogle table" onclick="toggleTable();">
+				<span class="fa fa-times" aria-hidden="true"></span>
+				<span class="fa fa-table" aria-hidden="true"></span>
+			</button>
+
+			<button type="button" id="colourButton" aria-label="Toogle colours" onclick="toggleColours();">
+				<span class="fa fa-circle" aria-hidden="true"></span>
+				<span class="fa fa-circle-o" aria-hidden="true"></span>
+			</button>
+		</div>
 	</div>
 		
 </body>

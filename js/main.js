@@ -11,6 +11,14 @@ function init() {
 	} else {
 		$('#dingGlyphicon').addClass('fa-bell-slash'); 
 	}
+
+	if (debateTypeIsBp) {
+		$('#presetsButton').text("15/07/05");
+		$('#academic').addClass('hidden');
+	} else {
+		$('#presetsButton').text("05/04/03");
+		$('#bp').addClass('hidden');
+	}
 }
 
 // Starts or resumes the chron
@@ -87,7 +95,14 @@ function toggleDing() {
 
 function togglePresets() {
 	$('.timePresets').toggleClass('hidden');
-	
+
+	debateTypeIsBp = !debateTypeIsBp;
+
+	if (debateTypeIsBp) {
+		$('#presetsButton').text("15/07/05");
+	} else {
+		$('#presetsButton').text("05/04/03");
+	}
 }
 
 // Private 
@@ -98,6 +113,7 @@ var paused = false;
 var ding = false;
 var dinging = false;
 var shouldDing = false;
+var debateTypeIsBp = true;
 
 function chron(t) {
 	var value = (final - t) / 1000;
