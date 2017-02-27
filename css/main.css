@@ -26,6 +26,41 @@ body {
 	
 }
 
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 0.2em;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+
+
 /* Self */
 
 p {
@@ -42,6 +77,10 @@ span.fa {
 
 #dingButton {
 	width: 102px;
+}
+
+#tableButton {
+	width: 141px;
 }
 
 
@@ -92,16 +131,23 @@ label {
 	margin-right: 10px;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+
+#config {
+	width: 555px;
+	margin: 20px 20px;
 }
 
 
-#config {
-	width: 543px;
-	margin: 20px 20px;
+#resultsTable {
+	width: 360px;
+	margin: auto;
+	margin-bottom: 80px;
+	font-size: 30px;
+}
+
+#tableHelp,
+#tableHelp > span.fa {
+	font-size: 30px;
 }
 
 

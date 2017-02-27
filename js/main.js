@@ -25,6 +25,7 @@ function init() {
 function initChrono() {
 	if (!paused) {
 		final = performance.now() + time * 1000;
+		initialTime = time;
 	} else {
 		final = performance.now() + getTimeOnScreen() * 1000;
 	}
@@ -60,6 +61,14 @@ function stopChrono() {
 	paused = false;
 }
 
+function stopChronoAndRecord() {
+	$('#tableHelp').remove();
+	$('#resultsTable tbody').append('<tr><td>#' + number + '</td><td>' + formatValue(initialTime)  + '</td><td>' + formatValue(getTimeOnScreen()) + '</td></tr>');
+	number += 1;
+
+	resetChrono();
+}
+
 function resetChrono() {
 	stopChrono();
 
@@ -86,13 +95,15 @@ function changeTime(t) {
 
 function toggleConfiguration() {
 	$('#config').toggleClass('hidden');
-
-	$('html,body').animate({scrollTop: $("#config").offset().top});
 }
 
 function toggleDing() {
 	$('#dingGlyphicon').toggleClass('fa-bell-slash fa-bell');
 	ding = !ding;
+
+	if (ding) {
+		playDing();
+	}
 }
 
 function togglePresets() {
@@ -107,6 +118,11 @@ function togglePresets() {
 	}
 }
 
+function toggleTable() {
+	$('#resultsTable').toggleClass('hidden');
+	$('#tableIcon').toggleClass('fa-check fa-times');
+}
+
 // Private 
 var time = 420;
 var final = null;
@@ -116,6 +132,8 @@ var ding = false;
 var dinging = false;
 var shouldDing = false;
 var debateTypeIsBp = true;
+var number = 1;
+var initialTime = null;
 
 function chron(t) {
 	var value = (final - t) / 1000;
@@ -200,4 +218,25 @@ function playDing(single = true) {
 			console.log('Ding! Ding!');
 		}
 	}
+}
+
+function formatValue(value) {
+	var min = ~~(value / 60);
+	var sec = ~~(value % 60);
+	min = ~~(Math.floor(value) / 60);
+	sec = Math.floor(value) % 60;
+	var text = "";
+
+	// Text formating
+	if (min > 10) {
+		text = min + ':' + ('0' + sec).slice(-2);
+	} else if (min >= 0 && sec >= 0) {
+		text = ('0' + min).slice(-2) + ':' + ('0' + sec).slice(-2);
+	} else if (min > -10) {
+		text = '-' + ('0' + Math.abs(min)).slice(-2) + ':' + ('0' + Math.abs(sec)).slice(-2);
+	} else {
+		text = min + ':' + ('0' + Math.abs(sec)).slice(-1);
+	}
+
+	return text;
 }
