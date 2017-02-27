@@ -2,22 +2,29 @@
 
 body {
 	color: #333;
-	background-color: #eee;
+	background-color: #efefef;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 40px;
-	background-image: url("../images/body.jpg");
 }
 
 .hidden {
-  display: none !important;
+	display: none !important;
 }
 
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+:disabled {	
+	filter: alpha(opacity=65);
+	opacity: .65;
+	pointer-events: none;
+	cursor: not-allowed;
 }
 
+:disabled:hover,
+:disabled:focus,{
+	background-color: #fff;
+	border-color: #ccc;
+	
+}
 
 /* Self */
 
@@ -33,31 +40,56 @@ span.fa {
 	font-size: 40px;
 }
 
-#chrono {
-	text-align: center;
-	font-size: 30vw;
+#dingButton {
+	width: 102px;
 }
 
-.controls {
-	margin-bottom: 20px;
+
+/* Elements */
+
+#chrono {
+	text-align: center;
+	font-size: 32vw;
+}
+
+
+.flexParent {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 #controlButtons {
 	width: 265px;
+	margin: 10px 20px;
 }
 
 #timeControls {
 	width: 480px;
+	margin: 10px 20px;
+	display: flex;
+	justify-content: space-between;
 }
 
 #timePresets {
 	width: 459px;
+	margin: 10px 20px;
 }
 
 input {
-	width: 66px;
+	width: 80px;
+	height: 67px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 40px;
+	padding: 2px 5px;
+	border: 1px solid #d4d4d4;
+	border-radius: 0.2em;
+}
+
+label {
+	height: 73px;
+	margin-top: 10px;
+	margin-right: 10px;
 }
 
 .clearfix::after {
@@ -66,26 +98,12 @@ input {
     display: table;
 }
 
-@media (min-width: 745px) {
-	#controlButtons {
-		float: left;
-		margin-right: 30px;
-	}
-	#timePresets {
-		float: left;
-	}
-	#timeControls {
-		clear: left; 
-	}
-}
 
 #config {
 	width: 543px;
+	margin: 20px 20px;
 }
 
-#configButton {
-	float:  right;
-}
 
 
 /* =============================================================================
@@ -104,21 +122,13 @@ button {
 	margin: 0;
 	text-decoration: none;
 	text-align: center;
-	text-shadow: 1px 1px 0 #fff;
 	font-size: 30px;
 	color: #333;
 	height: 71px;
 	white-space: nowrap;
 	cursor: pointer;
 	outline: none;
-	background-color: #fff;
-	//background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
-	//background-image: -moz-linear-gradient(#f4f4f4, #ececec);
-	//background-image: -ms-linear-gradient(#f4f4f4, #ececec);
-	//background-image: -o-linear-gradient(#f4f4f4, #ececec);
-	/background-image: linear-gradient(#f4f4f4, #ececec);
-	-moz-background-clip: padding; /* for Firefox 3.6 */
-	background-clip: padding-box;
+	background-color: rgb(255, 255, 255);
 	border-radius: 0.2em;
 	/* IE hacks */
 	zoom: 1;
@@ -130,19 +140,9 @@ button:hover,
 button:focus,
 button:active,
 button.active {
-    border-color: #3072b3;
-    border-bottom-color: #2a65a0;
-    text-decoration: none;
-    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
-    color: #fff;
-    background-color: rgb(9, 155, 74);
-}
-
-button:active,
-button.active {
-    border-color: #2a65a0;
-    border-bottom-color: #3884cd;
-    background-color: rgb(9, 155, 74);
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
 }
 
 
@@ -191,3 +191,5 @@ button + .button-group,
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
+
+

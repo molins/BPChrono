@@ -33,92 +33,90 @@
 
 
 
-	<div id="chrono" class="center-block"><p></p></div>
+	<div id="chrono"><p></p></div>
 		
 
+	<div class="flexParent">
 
-
-	<div id="controlButtons" class="controls center-block">
-		
-		<div class="button-group" role="group" aria-label="Chrono controls">
+		<div id="controlButtons" class="controls">
 			
-			<button type="button" id="initButton" aria-label="Start" onclick="initChrono();">
-				<span class="fa fa-play" aria-hidden="true"></span>
-			</button>
+			<div class="button-group" role="group" aria-label="Chrono controls">
+				
+				<button type="button" id="initButton" aria-label="Start" onclick="initChrono();">
+					<span class="fa fa-play" aria-hidden="true"></span>
+				</button>
 
-			<button type="button" id="pauseButton" aria-label="Pause" onclick="pauseChrono();" disabled="">
-				<span class="fa fa-pause" aria-hidden="true"></span>
-			</button>
+				<button type="button" id="pauseButton" aria-label="Pause" onclick="pauseChrono();" disabled="">
+					<span class="fa fa-pause" aria-hidden="true"></span>
+				</button>
 
-			<button type="button" id="stopButton" aria-label="Stop" onclick="stopChrono();" disabled="">
-				<span class="fa fa-stop" aria-hidden="true"></span>
-			</button>
+				<button type="button" id="stopButton" aria-label="Stop" onclick="stopChrono();" disabled="">
+					<span class="fa fa-stop" aria-hidden="true"></span>
+				</button>
+			</div>
+
 		</div>
 
-	</div>
 
 
 
+		<div id="timePresets">
+			<div id="bp" class="controls timePresets">
+				<div class="button-group" role="group">
+					<button type="button" id="15minButton" onclick="changeTime(900);">
+						15 min
+					</button>
 
-	<div id="timePresets" class="center-block">
-		<div id="bp" class="center-block controls timePresets">
-			<div class="button-group" role="group">
-				<button type="button" id="15minButton" onclick="changeTime(900);">
-					15 min
-				</button>
+					<button type="button" id="7minButton" onclick="changeTime(420);">
+						07 min
+					</button>
 
-				<button type="button" id="7minButton" onclick="changeTime(420);">
-					07 min
-				</button>
+					<button type="button" id="5minButton" onclick="changeTime(300);">
+						05 min
+					</button>
 
-				<button type="button" id="5minButton" onclick="changeTime(300);">
-					05 min
-				</button>
+				</div>
+			</div>
 
+			<div id="academic" class="controls hidden timePresets">
+				<div class="button-group" role="group">
+
+					<button type="button" id="5minButton" onclick="changeTime(300);">
+						05 min
+					</button>
+
+					<button type="button" id="4minButton" onclick="changeTime(240);">
+						04 min
+					</button>
+
+					<button type="button" id="3minButton" onclick="changeTime(180);">
+						03 min
+					</button>
+				</div>
 			</div>
 		</div>
 
-		<div id="academic" class="center-block controls hidden timePresets">
+
+
+
+		<div id="timeControls" class="controls">
+			<input id="minutesInput" class="timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutes"><label for="minutesInput">min</label>
+			<input id="secondsInput" class="timesControls" value="0" max=59 min=0 type="number" aria-label="Seconds"><label for="secondsInput">s</label>
+
 			<div class="button-group" role="group">
-
-				<button type="button" id="5minButton" onclick="changeTime(300);">
-					05 min
+				<button type="button" id="resetButton" aria-label="Reset" onclick="resetChrono();">
+					<span class="fa fa-repeat" aria-hidden="true"></span>
 				</button>
 
-				<button type="button" id="4minButton" onclick="changeTime(240);">
-					04 min
-				</button>
-
-				<button type="button" id="3minButton" onclick="changeTime(180);">
-					03 min
+				<button type="button" id="configButton" aria-label="Configuration" onclick="toggleConfiguration();">
+					<span class="fa fa-cog" aria-hidden="true"></span>
 				</button>
 			</div>
 		</div>
 	</div>
 
-
-
-
-	<div id="timeControls" class="center-block controls clearfix">
-		<input id="minutesInput" class="timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutes"><label for="minutesInput">min</label>
-		<input id="secondsInput" class="timesControls" value="0" max=59 min=0 type="number" aria-label="Seconds"><label for="secondsInput">s</label>
-
-		<div class="button-group" role="group">
-			<button type="button" id="resetButton" aria-label="Reset" onclick="resetChrono();">
-				<span class="fa fa-repeat" aria-hidden="true"></span>
-			</button>
-
-			<button type="button" id="configButton" aria-label="Configuration" onclick="toggleConfiguration();">
-				<span class="fa fa-cog" aria-hidden="true"></span>
-			</button>
-		</div>
-	</div>
-
-
-
-
-	<div id="config" class="center-block hidden">
-		<div class="button-group">
+	<div class="flexParent">
+		<div id="config" class="button-group hidden">
 			<button type="button" id="dingButton" aria-label="Toogle Sound" onclick="toggleDing();">
 				<span id="dingGlyphicon" class="fa" aria-hidden="true"></span>
 			</button>
@@ -126,12 +124,12 @@
 			<button type="button" id="presetsButton" aria-label="Toogle debate type" onclick="togglePresets();">
 			</button>
 
-			<button type="button" id="tableButton" aria-label="Toogle table" onclick="toggleTable();">
+			<button type="button" id="tableButton" aria-label="Toogle table" onclick="toggleTable();" disabled="">
 				<span class="fa fa-times" aria-hidden="true"></span>
 				<span class="fa fa-table" aria-hidden="true"></span>
 			</button>
 
-			<button type="button" id="colourButton" aria-label="Toogle colours" onclick="toggleColours();">
+			<button type="button" id="colourButton" aria-label="Toogle colours" onclick="toggleColours();" disabled="">
 				<span class="fa fa-circle" aria-hidden="true"></span>
 				<span class="fa fa-circle-o" aria-hidden="true"></span>
 			</button>
