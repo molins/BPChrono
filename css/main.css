@@ -50,7 +50,7 @@ span.fa {
 	width: 480px;
 }
 
-.timePresets {
+#timePresets {
 	width: 459px;
 }
 
@@ -60,8 +60,23 @@ input {
 	font-size: 40px;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
-@media (max-width: 830px) {
+@media (min-width: 745px) {
+	#controlButtons {
+		float: left;
+		margin-right: 30px;
+	}
+	#timePresets {
+		float: left;
+	}
+	#timeControls {
+		clear: left; 
+	}
 }
 
 #config {

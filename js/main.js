@@ -86,6 +86,8 @@ function changeTime(t) {
 
 function toggleConfiguration() {
 	$('#config').toggleClass('hidden');
+
+	$('html,body').animate({scrollTop: $("#config").offset().top});
 }
 
 function toggleDing() {

@@ -12,12 +12,13 @@
 	<link type="text/css" href="css/main.css" rel="stylesheet">
 
 	<!-- Javascript -->
-	<script type="text/javascript" src="js/jquery-3.1.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 
 </head>
 
 <body onload="init();">
+
 
 
 
@@ -34,6 +35,7 @@
 
 	<div id="chrono" class="center-block"><p></p></div>
 		
+
 
 
 	<div id="controlButtons" class="controls center-block">
@@ -57,43 +59,47 @@
 
 
 
-	<div id="bp" class="center-block controls timePresets">
-		<div class="button-group" role="group">
-			<button type="button" id="15minButton" onclick="changeTime(900);">
-				15 min
-			</button>
 
-			<button type="button" id="7minButton" onclick="changeTime(420);">
-				07 min
-			</button>
+	<div id="timePresets" class="center-block">
+		<div id="bp" class="center-block controls timePresets">
+			<div class="button-group" role="group">
+				<button type="button" id="15minButton" onclick="changeTime(900);">
+					15 min
+				</button>
 
-			<button type="button" id="5minButton" onclick="changeTime(300);">
-				05 min
-			</button>
+				<button type="button" id="7minButton" onclick="changeTime(420);">
+					07 min
+				</button>
 
+				<button type="button" id="5minButton" onclick="changeTime(300);">
+					05 min
+				</button>
+
+			</div>
+		</div>
+
+		<div id="academic" class="center-block controls hidden timePresets">
+			<div class="button-group" role="group">
+
+				<button type="button" id="5minButton" onclick="changeTime(300);">
+					05 min
+				</button>
+
+				<button type="button" id="4minButton" onclick="changeTime(240);">
+					04 min
+				</button>
+
+				<button type="button" id="3minButton" onclick="changeTime(180);">
+					03 min
+				</button>
+			</div>
 		</div>
 	</div>
 
-	<div id="academic" class="center-block controls timePresets hidden">
-		<div class="button-group" role="group">
-
-			<button type="button" id="5minButton" onclick="changeTime(300);">
-				05 min
-			</button>
-
-			<button type="button" id="4minButton" onclick="changeTime(240);">
-				04 min
-			</button>
-
-			<button type="button" id="3minButton" onclick="changeTime(180);">
-				03 min
-			</button>
-		</div>
-	</div>
 
 
-			
-	<div id="timeControls" class="center-block controls">
+
+	<div id="timeControls" class="center-block controls clearfix">
 		<input id="minutesInput" class="timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutes"><label for="minutesInput">min</label>
 		<input id="secondsInput" class="timesControls" value="0" max=59 min=0 type="number" aria-label="Seconds"><label for="secondsInput">s</label>
 
