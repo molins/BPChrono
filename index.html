@@ -120,13 +120,25 @@
 	</div>
 
 
-
+	<div class="flexParent">
+		<div id="bellConfig" class="button-group hidden">
+			<button type="button" id="dingButton6" aria-label="Activar/desactivar sonido" onclick="toggleDing(6);">
+				6 min <span id="dingGlyphicon6" class="bell fa" aria-hidden="true"></span>
+			</button>
+			<button type="button" id="dingButton1" aria-label="Activar/desactivar sonido" onclick="toggleDing(1);">
+				1 min <span id="dingGlyphicon1" class="bell fa" aria-hidden="true"></span>
+			</button>
+			<button type="button" id="dingButton0" aria-label="Activar/desactivar sonido" onclick="toggleDing(0);">
+				0 min <span id="dingGlyphicon0" class="bell fa" aria-hidden="true"></span><span id="dingGlyphicon0" class="bell fa" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
 
 
 	<div class="flexParent">
 		<div id="config" class="button-group hidden">
 			<button type="button" id="dingButton" aria-label="Activar/desactivar sonido" onclick="toggleDing();">
-				<span id="dingGlyphicon" class="fa" aria-hidden="true"></span>
+				<span id="dingGlyphicon" class="bell fa" aria-hidden="true"></span>
 			</button>
 
 			<button type="button" id="presetsButton" aria-label="Cambiar tipo de debate" onclick="togglePresets();">

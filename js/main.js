@@ -7,9 +7,9 @@ function init() {
 	$('#stopButton').prop("disabled", true);
 
 	if (ding) {
-		$('#dingGlyphicon').addClass('fa-bell');
+		$('.bell').addClass('fa-bell');
 	} else {
-		$('#dingGlyphicon').addClass('fa-bell-slash'); 
+		$('.bell').addClass('fa-bell-slash');
 	}
 
 	if (debateTypeIsBp) {
@@ -102,6 +102,8 @@ function toggleConfiguration() {
 
 function toggleDing() {
 	$('#dingGlyphicon').toggleClass('fa-bell-slash fa-bell');
+	$('#bellConfig').toggleClass('hidden');
+
 	ding = !ding;
 
 	if (ding) {
