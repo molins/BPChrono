@@ -89,6 +89,9 @@ function changeTime(t) {
 	changeText(t);
 	$('#initButton').prop("disabled", false);
 
+	$('#minutesInput').val(minutes);
+	$('#secondsInput').val(seconds);
+
 	paused = false;
 }
 

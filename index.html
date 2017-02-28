@@ -99,9 +99,13 @@
 
 
 
-		<div id="timeControls" class="controls">
+		<div id="timeControls" class="controls flexParent">
+			<div>
 			<input id="minutesInput" class="timesControls" value="7" min=0 max=1440 type="number" aria-label="Minutos"><label for="minutesInput">min</label>
+			</div>
+			<div>
 			<input id="secondsInput" class="timesControls" value="0" max=59 min=0 type="number" aria-label="Segundos"><label for="secondsInput">s</label>
+			</div>
 
 			<div class="button-group" role="group">
 				<button type="button" id="resetButton" aria-label="Reset" onclick="resetChrono();">
@@ -114,6 +118,10 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
 
 	<div class="flexParent">
 		<div id="config" class="button-group hidden">
