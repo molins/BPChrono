@@ -202,11 +202,12 @@ function getTimeOnScreen() {
 	var min = text[0];
 	var sec = text[1];
 
-	//console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 + sec));
 
 	if (min[0] == '-') {
-		return -(min * 60 + sec * 1);
+		//console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 - sec * 1));
+		return (min * 60 - sec * 1);
 	} else {
+		//console.log('getTimeOnScreen: ' + min + ':' + sec + '= ' + (min * 60 + sec * 1));
 		return (min * 60 + sec * 1);
 	}	
 }
