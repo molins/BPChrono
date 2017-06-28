@@ -99,7 +99,7 @@ span.fa {
 }
 
 #controlButtons {
-	width: 265px;
+	width: 193px;
 	margin: 10px 20px;
 }
 
@@ -111,7 +111,7 @@ span.fa {
 }
 
 #timePresets {
-	width: 459px;
+	width: 406px;
 	margin: 10px 20px;
 }
 
@@ -151,7 +151,13 @@ label {
 	font-size: 30px;
 }
 
-
+/* https://stackoverflow.com/questions/396145/how-to-vertically-center-a-div-for-all-browsers 
+.absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+*/
 
 /* =============================================================================
    Button groups: https://github.com/necolas/css3-github-buttons
@@ -164,7 +170,7 @@ button {
 	position: relative;
 	overflow: visible;
 	display: inline-block;
-	padding: 0.4em 0.8em;
+	padding: 0.2em 0.4em;
 	border: 1px solid #d4d4d4;
 	margin: 0;
 	text-decoration: none;
