@@ -19,6 +19,12 @@ function init() {
 		$('#presetsButton').text("05/04/03");
 		$('#bp').addClass('hidden');
 	}
+
+	if (window.location.hash == '#cmude') {
+		$('.cmude').removeClass('hidden');
+	} else {
+		$('.cmude').addClass('hidden');
+	}
 }
 
 // Starts or resumes the chron

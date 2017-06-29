@@ -89,6 +89,7 @@ span.fa {
 #chrono {
 	text-align: center;
 	font-size: 32vw;
+	margin-top: 0.1em;
 }
 
 
@@ -152,7 +153,7 @@ label {
 }
 
 #overlayTopLeft {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -162,6 +163,35 @@ label {
 #imageOverlayLeft {
 	width: 20%;
 }
+
+#overlayBottomRight {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
+#imageBottomRight {
+	width: 20%;  
+	position: absolute;
+  	bottom: 0;
+  	right: 0;
+}
+
+#overlayBottomLeft {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#imageBottomLeft {
+	width: 10%;  
+	position: absolute;
+  	bottom: 0;
+  	left: 0;
+}
+
 
 /* https://stackoverflow.com/questions/396145/how-to-vertically-center-a-div-for-all-browsers 
 .absolute-Center {
