@@ -106,15 +106,18 @@ function toggleConfiguration() {
 	$('#config').toggleClass('hidden');
 }
 
-function toggleDing() {
-	$('#dingGlyphicon').toggleClass('fa-bell-slash fa-bell');
+function toggleDings() {
 	$('#bellConfig').toggleClass('hidden');
+}
 
-	ding = !ding;
+function toggleDing(num) {
+	dings[num] = !dings[num]; 
 
-	if (ding) {
+	if (dings[num]) {
 		playDing();
 	}
+
+	$('.dingGlyphicon' + num).toggleClass('fa-bell-slash fa-bell');
 }
 
 function togglePresets() {
@@ -139,12 +142,13 @@ var time = 420;
 var final = null;
 var animationFrame = null;
 var paused = false;
-var ding = false;
+var ding = true;
 var dinging = false;
 var shouldDing = false;
 var debateTypeIsBp = true;
 var number = 1;
 var initialTime = null;
+var dings = {0: ding, 1: ding, 6: ding};
 
 function chron(t) {
 	var value = (final - t) / 1000;
@@ -179,17 +183,17 @@ function changeText(value) {
 	if (sec == 0 && min == 6) {
 		if (!dinging) {
 			dinging = true;
-			playDing();
+			playDing(6);
 		}
 	} else if (sec == 0 && min == 1) {
 		if (!dinging) {
 			dinging = true;
-			playDing();
+			playDing(1);
 		}
 	} else if (sec == 0 && min == 0) {
 		if (!dinging) {
 			dinging = true;
-			playDing(false);
+			playDing(0);
 		}
 	} else {
 		dinging = false;
@@ -220,14 +224,12 @@ function getTimeOnScreen() {
 	}	
 }
 
-function playDing(single = true) {
-	if (ding) {
-		if (single) {
+function playDing(num) {
+	if (dings[num]) {
+		if (num != 0) {
 			$('#dingx1').trigger('play');
-			console.log('Ding!');
 		} else {
 			$('#dingx2').trigger('play');
-			console.log('Ding! Ding!');
 		}
 	}
 }
